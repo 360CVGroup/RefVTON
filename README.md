@@ -1,6 +1,7 @@
 
 # End2End Virtual Tryon with Visual Reference
 
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-EVTAR-ff9900?style=for-the-badge&logo=huggingface)](https://huggingface.co/qihoo360/EVTAR) [![arXiv](https://img.shields.io/badge/arXiv-2101.00001-B31B1B?style=for-the-badge&logo=arxiv)](https://arxiv.org/abs/2101.00001)
   
 
 ![examples](assets/examples.png)
