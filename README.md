@@ -107,7 +107,7 @@ pip install -r requirements.txt
 
   
 
-Currently, we provide a small test set with reference images for trying our model. We plan to release the reference data generation code, along with our proposed full dataset containing model reference images, in the future.
+Currently, we provide a small test set with additional reference images "difference person wearing the target cloth" for trying our model. We plan to release the reference data generation code, along with our proposed full dataset containing model reference images, in the future.
 
   
 
@@ -125,7 +125,7 @@ Nevertheless, inference can still be performed in a reference-free setting on pu
 
   
 
-One key feature of our method is the use of _reference data_, where an image of a different person wearing the target garment is provided to help the model imagine how the target person would look in that garment. In most online shopping applications, such reference images are commonly used by customers to better visualize the clothing. However, publicly available datasets such as VITON-HD and DressCode do not include such reference data, so we generate them ourselves.
+One key feature of our method is the use of _reference data_, where an image of a different person wearing the target garment is provided to help the model imagine how the target person would look in that garment. In most online shopping applications, such additonal reference images are commonly used by customers to better visualize the clothing. However, publicly available datasets such as VITON-HD and DressCode do not include such reference data, so we generate them ourselves.
 
   
 
@@ -133,7 +133,7 @@ One key feature of our method is the use of _reference data_, where an image of 
 
   
 
-Please prepare the pretrained weights of the Flux-Kontext model and the Qwen2.5-VL-32B model. And you can generate the reference image using the following commands:
+Please prepare the pretrained weights of the Flux-Kontext model and the Qwen2.5-VL-32B model. And you can generate the additonal reference image using the following commands:
 
   
 
@@ -227,7 +227,7 @@ accelerate launch --num_processes 8 --main_process_port 29500 inference.py \
 
   
 
--  `use_reference`: Whether to use a reference model image.
+-  `use_reference`: Whether to use a additonal reference image as input.
 
   
 
