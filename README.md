@@ -5,7 +5,7 @@
 
   
 
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-EVTAR-ff9900?style=flat)](https://huggingface.co/qihoo360/EVTAR) [![arXiv](https://img.shields.io/badge/arXiv-2101.00001-B31B1B?style=flat)](https://arxiv.org/abs/2511.00956)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-EVTAR-ff9900?style=flat)](https://huggingface.co/qihoo360/EVTAR) [![arXiv](https://img.shields.io/badge/arXiv-2511.00956-B31B1B?style=flat)](https://arxiv.org/abs/2511.00956)
 
   
 
@@ -83,6 +83,9 @@ We propose **EVTAR**, an End-to-End Virtual Try-on model with Additional Visual 
 conda create -n EVTAR python=3.12 -y
 conda activate EVTAR
 pip install -r requirements.txt
+cd diffusers
+pip install -e .
+cd ..
 ```
 
   
@@ -107,7 +110,7 @@ pip install -r requirements.txt
 
   
 
-Currently, we provide a small test set that includes additional reference images of **different persons wearing the target clothes** for testing our model. You can find it in the `examples_try` folder. We plan to release the reference data generation code, along with our complete dataset containing model reference images, in the future.
+Currently, we provide a small test set that includes additional reference images of **different persons wearing the target clothes** for testing our model. You can find it in the `examples` folder. We plan to release the reference data generation code, along with our complete dataset containing model reference images, in the future.
 
 
   
@@ -148,7 +151,6 @@ Here we provide the inference code for our EVTAR.
 
 ```
 accelerate launch --num_processes 8 --main_process_port 29500 inference.py \
-
 --pretrained_model_name_or_path="[path_to_your_Flux_model]" \
 --instance_data_dir="[your_data_directory]" \
 --output_dir="[Path_to_LoRA_weights]" \
@@ -180,7 +182,7 @@ accelerate launch --num_processes 8 --main_process_port 29500 inference.py \
 
   
 
--  `output_dir`: Path to the downloaded or trained LoRA weights.
+-  `output_dir`: Path to the directory of the downloaded or trained LoRA weights.
 
   
 
@@ -222,9 +224,7 @@ We quantitatively evaluate the quality of virtual try-on results using the FID, 
 
 ```
 # Evaluation on VITON-HD dataset
-
 CUDA_VISIBLE_DEVICES=0 python eval_dresscode.py \
-
 --gt_folder_base [path_to_your_ground_truth_image_folder] \
 --pred_folder_base [[path_to_your_generated_image_folder]]\
 --paired
@@ -240,7 +240,6 @@ CUDA_VISIBLE_DEVICES=0 python eval_dresscode.py \
 # Evaluation on DressCode dataset
 
 CUDA_VISIBLE_DEVICES=0 python eval.py \
-
 --gt_folder_base [path_to_your_ground_truth_image_folder] \
 --pred_folder_base [[path_to_your_generated_image_folder]]\
 ```
