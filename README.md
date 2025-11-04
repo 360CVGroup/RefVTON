@@ -117,49 +117,13 @@ Nevertheless, inference can still be performed in a reference-free setting on pu
 
   
 
-  
-
-### Reference Data Preparation
-
-  
-
-  
-
-One key feature of our method is the use of _reference data_, where an image of a different person wearing the target garment is provided to help the model imagine how the target person would look in that garment. In most online shopping applications, such additonal reference images are commonly used by customers to better visualize the clothing. However, publicly available datasets such as VITON-HD and DressCode do not include such reference data, so we generate them ourselves.
-
-  
-
-  
-
-  
-
-Please prepare the pretrained weights of the Flux-Kontext model and the Qwen2.5-VL-32B model. And you can generate the additonal reference image using the following commands:
-
-  
-
-  
-
-```
-accelerate launch --num_processes 8 --main_process_port 29500 generate_reference.py \
---instance_data_dir "path_to_your_datasets" \
---inference_batch_size 1 \
---split "train" \
---desc_path "desc.json"
-```
-
-  
-
-  
-
-  
-
 ### Pretrained Models
 
   
 
   
 
-We provide pretrained backbone networks and LoRA weights for testing and deployment. Please download the `.safetensors` files from [here] and place them in the `checkpoints` directory.
+We provide pretrained backbone networks and LoRA weights for evaluation and deployment. Please download the `.safetensors` files from [here](https://huggingface.co/qihoo360/EVTAR) and place them in the `checkpoints` directory. In addition, download the pretrained weights of **Flux-Kontext.dev** from [here](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev) to serve as the backbone model.
 
   
 
