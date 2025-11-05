@@ -1,2 +1,5 @@
 __pycache__
 .vscode
+checkpoints
+*/__pycache__/*
+*.sh

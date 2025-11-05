@@ -1,6 +1,6 @@
 import torch, os
 from diffusers import FluxKontextPipelineI2I
-from train_lora_flux_kontext_1st_stage import viton_collate_fn
+from datasets_util.datasets_loader import viton_collate_fn
 from datasets_util.viton import VITONDataset
 from datasets_util.dresscode import DressCodeDataset
 from datasets_util.in_the_wild import MyDataset
@@ -91,7 +91,7 @@ def main(args):
     pipe = FluxKontextPipelineI2I.from_pretrained(
         args.pretrained_model_name_or_path, torch_dtype=torch.bfloat16
     )
-    pipe.load_lora_weights(args.output_dir)
+    pipe.load_lora_weights(args.checkpoint_weight)
 
     pipe, dataloader = accelerator.prepare(pipe, dataloader)
     pipe.to(accelerator.device)

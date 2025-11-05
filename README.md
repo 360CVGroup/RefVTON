@@ -152,14 +152,14 @@ Here we provide the inference code for our EVTAR.
 ```
 accelerate launch --num_processes 8 --main_process_port 29500 inference.py \
 --pretrained_model_name_or_path="[path_to_your_Flux_model]" \
---instance_data_dir="example" \
---output_dir="checkpoints" \
+--instance_data_dir="[your_data_directory]" \ # e.g. "./example" can be used as a demo directory
+--checkpoint_weight="[Path_to_LoRA_weights]" \
 --mixed_precision="bf16" \
 --split="test" \
---height=1024 \
---width=768 \
+--height=512 \
+--width=384 \
 --inference_batch_size=1 \
---cond_scale=2 \
+--cond_scale=1 \
 --seed="0" \
 --use_reference \
 --use_different \
@@ -176,13 +176,14 @@ accelerate launch --num_processes 8 --main_process_port 29500 inference.py \
 
   
 
--  `instance_data_dir`: Path to your dataset. For inference on VITON-HD or DressCode, ensure that the words "viton" or "DressCode" appear in the path.
-
+-  `instance_data_dir`: Path to your dataset. If you want to inference on VITON-HD or DressCode, ensure that the words "viton" or "DressCode" appear in the path.
+If you want to use your own dataset, you can organize your files following the directory structure provided in our `./example`, and then set this argument to the corresponding path.
   
 
   
 
--  `output_dir`: Path to the directory of the downloaded or trained LoRA weights.
+-  `checkpoint_weight`: Path to the downloaded or trained LoRA weights. Make sure to select the weights that match your desired resolution — for example,
+`512_384_pytorch_lora_weights.safetensors` corresponds to a resolution of $512\times384$ 
 
   
 
