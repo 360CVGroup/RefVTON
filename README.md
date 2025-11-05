@@ -210,7 +210,8 @@ If you want to use your own dataset, you can organize your files following the d
 -  `use_person`: **Only applicable for VITON/DressCode inference.** Whether to use the unmasked person image instead of the agnostic masked image as input for the virtual try-on task.
 
   
-
+We conduct inference on an A800 GPU, which requires approximately 34 GB GPU memory.
+Each image takes about 10 seconds to generate, and the resulting images will be saved automatically in the directory specified by instance_data_dir (e.g. `example/sample_person_unpair_ref`).
   
 
 ## 📊 Evaluation
