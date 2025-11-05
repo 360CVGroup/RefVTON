@@ -51,7 +51,7 @@ We propose **EVTAR**, an End-to-End Virtual Try-on model with Additional Visual 
 
   
 
--  **And End-To-End virtual try-on model:** Can function either as an inpainting model for placing the target clothing into masked areas, or as a direct garment transfer onto the human body.
+-  **An End-To-End virtual try-on model:** Can function either as an inpainting model for placing the target clothing into masked areas, or as a direct garment transfer onto the human body.
 
   
 
