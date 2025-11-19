@@ -15,7 +15,7 @@
 
   
 
-We propose **RefVTON**, an End-to-End Virtual Try-on model with Additional Visual Reference, that directly fits the target garment onto the person image while incorporating reference images to enhance the model's ability to preserve and accurately depict clothing details.
+We propose **RefVTON**, an Person-to-Person Virtual Try-on model with Additional Visual Reference, that directly fits the target garment onto the person image while incorporating reference images to enhance the model's ability to preserve and accurately depict clothing details.
 
   
 
@@ -51,19 +51,12 @@ We propose **RefVTON**, an End-to-End Virtual Try-on model with Additional Visua
 
   
 
--  **An End-To-End virtual try-on model:** Can function either as an inpainting model for placing the target clothing into masked areas, or as a direct garment transfer onto the human body.
+- **End-to-End Virtual Try-On Model:**  Adapted from [Flux-Kontext](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/flux), our model can operate either as an inpainting system that transfer target garments into masked regions or as a direct garment-transfer model that applies the clothing onto the human body.
 
-  
+- **Reference-Guided Try-On for Enhanced Realism:**  To reflect users’ preference for realistic wearing effects rather than isolated garment appearance in online shopping, our model supports using reference images of a person wearing the target clothing. This enables better preservation of material textures and fine design details.
 
-  
+- **Improved Performance:**  Our model achieves state-of-the-art results on public benchmarks and demonstrates strong generalization to in-the-wild inputs.
 
--  **Using Reference Image To Enhance the Try-on Performance:** To emulate human attention on the overall wearing effect rather than the garment itself when shopping online, our model allows using images of a model wearing the target clothing as input, thereby better preserving its material texture and design details.
-
-  
-
-  
-
--  **Improved Performance** Our model achieves state-of-the-art performance on public benchmarks and demonstrates strong generalization ability to in-the-wild inputs.
 
   
 
@@ -262,7 +255,7 @@ Evaluation result on VITON-HD and DressCode dataset:
   
   
 
-Evaluation result on three subset of DressCode dataset:
+Evaluation result on three subsets of DressCode dataset:
 
 ![examples](assets/dresscode_subset.png)
 
